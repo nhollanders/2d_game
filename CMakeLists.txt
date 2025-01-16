@@ -12,5 +12,21 @@ FetchContent_Declare(SFML
     SYSTEM)
 FetchContent_MakeAvailable(SFML)
 
-add_executable(main src/main.cpp)
+
+# Include the src directory
+include_directories(${CMAKE_SOURCE_DIR}/src)
+
+# Add all source files
+add_executable(main src/main.cpp src/Game.cpp)
+
+# Link SFML library
 target_link_libraries(main PRIVATE SFML::Graphics)
+target_link_libraries(main PRIVATE SFML::System)
+target_link_libraries(main PRIVATE SFML::Window)
+target_link_libraries(main PRIVATE SFML::Audio)
+
+# Copy resources to the build directory
+add_custom_command(TARGET main POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${CMAKE_SOURCE_DIR}/src/Resources $<TARGET_FILE_DIR:main>/Resources
+)

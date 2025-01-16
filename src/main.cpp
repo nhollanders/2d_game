@@ -1,21 +1,28 @@
-#include <SFML/Graphics.hpp>
+// Project Specific Includes (custom)
+#include "Game.h"
+//#include <Windows.h>
 
+//int WINAPI WinMain(HINSTANCE hThisInstance, HINSTANCE hPrevInstance, LPSTR lpszArgument, int nCmdShow)
 int main()
 {
-    auto window = sf::RenderWindow(sf::VideoMode({1920u, 1080u}), "CMake SFML Project");
-    window.setFramerateLimit(144);
+    // SRand seed initialization
+    std::srand(static_cast<unsigned>(time(NULL)));
 
-    while (window.isOpen())
+    // Init game engine
+    Game game;
+
+    // Debug
+    //game.setDisplayTitleFps(true);
+    //game.setDebugText(true);
+
+    while (game.getIsRunning())
     {
-        while (const std::optional event = window.pollEvent())
-        {
-            if (event->is<sf::Event::Closed>())
-            {
-                window.close();
-            }
-        }
-
-        window.clear();
-        window.display();
+        // Update
+        game.update();
+        
+        // Render
+        game.render();
     }
+
+    return 0;
 }

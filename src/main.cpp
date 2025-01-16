@@ -1,5 +1,5 @@
 // Project Specific Includes (custom)
-#include "Game.h"
+#include "includes/Game.h"
 //#include <Windows.h>
 
 //int WINAPI WinMain(HINSTANCE hThisInstance, HINSTANCE hPrevInstance, LPSTR lpszArgument, int nCmdShow)

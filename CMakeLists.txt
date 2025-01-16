@@ -14,11 +14,11 @@ FetchContent_MakeAvailable(SFML)
 
 
 # Include the src directory
-include_directories(${CMAKE_SOURCE_DIR}/src)
 include_directories(${CMAKE_SOURCE_DIR}/src/includes)
+include_directories(${CMAKE_SOURCE_DIR}/src)
 
 # Add all source files
-add_executable(main src/main.cpp src/Game.cpp)
+add_executable(main src/main.cpp "src/includes/Game.cpp")
 
 # Link SFML library
 target_link_libraries(main PRIVATE SFML::Graphics)

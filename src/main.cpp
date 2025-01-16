@@ -12,8 +12,7 @@ int main()
     Game game;
 
     // Debug
-    //game.setDisplayTitleFps(true);
-    //game.setDebugText(true);
+    game.setDisplayTitleFps(true);
 
     while (game.getIsRunning())
     {
@@ -23,6 +22,6 @@ int main()
         // Render
         game.render();
     }
-
+    
     return 0;
 }

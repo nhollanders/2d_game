@@ -15,6 +15,7 @@ FetchContent_MakeAvailable(SFML)
 
 # Include the src directory
 include_directories(${CMAKE_SOURCE_DIR}/src)
+include_directories(${CMAKE_SOURCE_DIR}/src/includes)
 
 # Add all source files
 add_executable(main src/main.cpp src/Game.cpp)
